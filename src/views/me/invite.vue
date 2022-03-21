@@ -8,7 +8,7 @@
 
               <!--        右半部分-->
               <div class="login-content password-login" id="password-login">
-                <p class="login-til">邀请码注册</p>
+                <p class="login-til">用户注册</p>
                 <el-form :model="registerForm" :rules="registerRules" style="margin-top: 17.69%" ref="registerForm" label- width="0px" class="login_form">
                   <el-form-item prop="name">
                     <el-input v-model="registerForm.name" placeholder="请输入账户" prefix-icon="el-icon-user-solid"></el-input>
@@ -19,8 +19,11 @@
                   <el-form-item prop="repwd">
                     <el-input type="password" v-model="registerForm.repwd" placeholder="请输入重新输入密码" prefix-icon="el-icon-lock"></el-input>
                   </el-form-item>
-                  <el-form-item prop="invitationCode">
-                    <el-input type="password" v-model="registerForm.invitationCode" placeholder="请输入正确的邀请码" prefix-icon="el-icon-c-scale-to-original"></el-input>
+                  <el-form-item prop="phone">
+                    <el-input type="password" v-model="registerForm.phone" placeholder="请输入电话号码" prefix-icon="el-icon-mobile-phone"></el-input>
+                  </el-form-item>
+                  <el-form-item prop="email">
+                    <el-input type="password" v-model="registerForm.email" placeholder="请输入电子邮箱" prefix-icon="el-icon-folder"></el-input>
                   </el-form-item>
                   <el-form-item>
                     <div class="remember-wrap" style="margin-top: 9%;">
@@ -53,7 +56,8 @@ export default {
         name: '',
         password: '',
         repwd: '',
-        invitationCode: ''
+        phone: '',
+        email: ''
       },
       registerRules: {
         name: [
@@ -68,9 +72,13 @@ export default {
           { required: true, message: '密码不能为空', trigger: 'blur' },
           { min: 6, max: 16, message: '长度在 6 到 16 个字符', trigger: 'blur' }
         ],
-        invitationCode: [
-          { required: true, message: '邀请码不能为空', trigger: 'blur' },
-          { min: 7, max: 7, message: '长度为 7 位字符与数字的字符串', trigger: 'blur' }
+        phone: [
+          { required: true, message: '电话号码', trigger: 'blur' },
+          { min: 11, max: 11, message: '电话号码格式不规范', trigger: 'blur' }
+        ],
+        email: [
+          { required: true, message: '邮箱', trigger: 'blur' },
+          { min: 1, message: '邮箱格式不能为空', trigger: 'blur' }
         ]
       }
     }
@@ -81,8 +89,8 @@ export default {
     },
     getNotice () {
       this.$notify({
-        title: '邀请码详述',
-        message: '登录用户可根据邀请码获取不同的权限，即可看不同的展示数据，具体权限与管理员沟通。微信二维码详见登录界面。',
+        title: '提示',
+        message: '如若注册失败，请重新尝试',
         type: 'warning',
         duration: 5000
       })
@@ -102,7 +110,7 @@ export default {
       this.systemRegister1()
     },
     async systemRegister1 () {
-      const { data } = await systemRegister(this.registerForm.name, this.registerForm.password, this.registerForm.repwd, this.registerForm.invitationCode)
+      const { data } = await systemRegister(this.registerForm.name, this.registerForm.password, this.registerForm.repwd, this.registerForm.phone)
       if (data.code === 2004) {
         this.$notify({
           title: '警告',
@@ -168,12 +176,12 @@ export default {
 
 .login-page .login-content .login-box {
   min-width: 520px;
-  min-height: 478px;
+  min-height: 508px;
   position: absolute;
   left: 50%;
   margin-left: -14%;
   top: 55%;
-  margin-top: -16%;
+  margin-top: -20%;
   width: 28%;
   height: 50%;
   display: block;

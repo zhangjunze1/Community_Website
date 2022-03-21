@@ -9,7 +9,7 @@ import request from '../utils/request'
  */
 export const adminLogin = (name, password) => {
   return request({
-    url: '/sysUser/loginSysUser',
+    url: '/admin/loginAdmin',
     method: 'POST',
     params: {
       name,

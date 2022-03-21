@@ -3,7 +3,7 @@
     <div class="home-banner">
       <div class="banner-container">
         <p class="home-title" style="color: whitesmoke">
-          沙门氏杆菌展示系统
+          食社社区系统
         </p>
         <div id="time"
              style="font-weight: lighter;font-size: medium;margin-top:10px;width: 250px;height: 20px;float:right;color: #1e1e1e">

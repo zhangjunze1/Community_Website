@@ -7,12 +7,12 @@
       <div class="item-login clear">
 <!--        左半部分-->
         <div class="login-content code-login" id="qrcode-login">
-          <p class="login-til">获取邀请码途径</p>
+          <p class="login-til">食社 欢迎您</p>
           <div class="normal-wrap" id="qrcode-box">
             <div class="code-wrap">
               <img id="qrcode" style="height: 100%;width: 100%;border: #333333" src="../assets/img/community_icon.png">
-              <p class="tip-text" style="font-size: 14px;">
-                食社 ，欢迎您
+              <p class="tip-text" style="font-size: 15px">
+                愉快交流美食
               </p>
             </div>
           </div>
@@ -21,23 +21,23 @@
         <div class="login-content password-login" id="password-login">
           <p class="login-til">系统登录</p>
           <el-form :model="loginForm" :rules="loginRules" style="margin-top: 22%" ref="loginForm" label- width="0rem" class="login_form">
-            <el-form-item prop="name">
+            <el-form-item prop="name" style="margin-top: 60px">
               <el-input v-model="loginForm.name" placeholder="请输入账户" prefix-icon="el-icon-user-solid"></el-input>
             </el-form-item>
-            <el-form-item prop="password">
+            <el-form-item prop="password" >
               <el-input type="password" v-model="loginForm.password" placeholder="请输入登录密码" prefix-icon="el-icon-lock"></el-input>
             </el-form-item>
             <el-form-item>
-              <div class="remember-wrap" style="margin-top: 10%;">
+              <div class="remember-wrap" style="margin-top: 5%;">
                 <div class="link-box">
                   <a class="link" target="_blank" @click="back">返回</a>
-                  <a class="link" style="margin-left: 20%" target="_blank" @click="test">游客登陆</a>
-                  <a class="link" style="margin-left: 50%" target="_blank" @click="toInvite">邀请码注册</a>
-<!--                  <a class="link" style="margin-left: 108px" target="_blank" @click="toAdmin">管理系统</a>-->
+<!--                  <a class="link" style="margin-left: 20%" target="_blank" @click="test">游客登陆</a>-->
+                  <a class="link" style="margin-left: 20%" target="_blank" @click="toInvite">注册</a>
+<!--&lt;!&ndash;                  <a class="link" style="margin-left: 108px" target="_blank" @click="toAdmin">管理系统</a>&ndash;&gt;-->
                 </div>
-                <div class="link-box" style="margin-top: 10%">
-                  <p style="color: #1b2327;margin-left: 2%">注：游客仅能查看部分数据</p>
-                </div>
+<!--                <div class="link-box" style="margin-top: 10%">-->
+<!--                  <p style="color: #1b2327;margin-left: 2%">注：未注册用户请先注册</p>-->
+<!--                </div>-->
               </div>
             </el-form-item>
             <el-form-item>

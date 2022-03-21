@@ -8,7 +8,7 @@
 
               <!--        右半部分-->
               <div class="login-content password-login" id="password-login">
-                <p class="login-til">后台管理系统</p>
+                <p class="login-til">食社后台管理系统</p>
                 <el-form :model="loginForm" :rules="loginRules" style="margin-top: 27%" ref="loginForm" label- width="0px" class="login_form">
                   <el-form-item prop="name">
                     <el-input v-model="loginForm.name" placeholder="请输入账户" prefix-icon="el-icon-user-solid"></el-input>
@@ -79,24 +79,17 @@ export default {
     },
     async myadminlogin () {
       const { data } = await adminLogin(this.loginForm.name, this.loginForm.password)
-      if (data.code === 2003) {
+      if (data.code === 3004) {
         this.$notify({
           title: '警告',
           message: '密码错误',
           type: 'warning',
           duration: 2000
         })
-      } else if (data.code === 2007) {
+      } else if (data.code === 3003) {
         this.$notify({
           title: '警告',
           message: '账号不存在',
-          type: 'warning',
-          duration: 2000
-        })
-      } else if (data.code === 2002) {
-        this.$notify({
-          title: '警告',
-          message: '非管理员账户',
           type: 'warning',
           duration: 2000
         })

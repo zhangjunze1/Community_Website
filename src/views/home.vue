@@ -3,7 +3,7 @@
     <div class="home-container">
       <div>
         <h1 class="blog-title animated zoomIn" style="margin-top: 0.9259rem">
-          沙门氏杆菌展示系统
+          食社社区系统
         </h1>
       </div>
       <div class="login_box" style="margin-top: 0.9259rem">

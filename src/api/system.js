@@ -23,7 +23,7 @@ export const systemRegister = (name, password, password1, inviteCode) => {
 }
 
 /**
- * 登录展示系统
+ * 登录美食社区
  * @param name
  * @param password
  * @returns {AxiosPromise}

@@ -4,7 +4,7 @@
     <el-aside :width="isCollapse?'1.185rem':'3.703rem'">
       <div class="title_box_main">
         <i style="margin-right: 0.148rem" class="el-icon-odometer"></i>
-        <span >沙门氏杆菌展示</span>
+        <span >食社后台管理系统</span>
       </div>
       <!--展开收起-->
       <div class="toggle_box" @click="toggleCollapse"></div>
@@ -26,11 +26,11 @@
     <el-container>
       <!--头部布局-->
       <el-header >
-        <span style="margin-left: 0.3704rem; margin-right: 0.3704rem; font-size: 0.333rem;color: black;size: 0.3704rem">后端管理系统-欢迎您-管理员编号:{{this.$root.ADMIN.id}}</span>
+        <span style="margin-left: 0.3704rem; margin-right: 0.3704rem; font-size: 0.333rem;color: black;size: 0.3704rem">后台管理系统-欢迎您-管理员编号:{{this.$root.ADMIN.id}}</span>
 
         <div class="right_box">
           <el-dropdown>
-            <img src="../../assets/img/dna1.png">
+            <img src="../../assets/img/community_icon.png">
             <!--下拉菜单-->
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item icon="el-icon-s-home" @click.native="change">首页信息</el-dropdown-item>
@@ -44,7 +44,7 @@
         <router-view></router-view>
       </el-main>
       <el-footer style="height: 0.463rem;text-align: center;background: #F0F8FF" >
-        ©Copyright 2021 zhangjz-toishT工作室 | 浙大城市学院小伙
+        ©Copyright 2021 JUNZE工作室 | 浙大城市学院小伙
       </el-footer>
     </el-container>
   </el-container>
