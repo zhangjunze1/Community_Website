@@ -13,7 +13,7 @@
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
-        background-color="#001529"
+        background-color="#111111"
         text-color="#fff"
         active-text-color="#ffd04b"
         :collapse="isCollapse"
@@ -26,7 +26,7 @@
     <el-container>
       <!--头部布局-->
       <el-header >
-        <span style="margin-left: 0.3704rem; margin-right: 0.3704rem; font-size: 0.333rem;color: black;size: 0.3704rem">后台管理系统-欢迎您-管理员编号:{{this.$root.ADMIN.id}}</span>
+        <span style="margin-left: 0.3704rem; margin-right: 0.3704rem; font-size: 0.333rem;color: black;size: 0.3704rem">食社-SHISHE</span>
 
         <div class="right_box">
           <el-dropdown>
@@ -137,7 +137,7 @@ export default {
 }
 /*侧边栏*/
 .el-aside {
-  background-color: #001529;
+  background-color: #111111;
   text-align: left;
   .el-menu{
     border-right: none;

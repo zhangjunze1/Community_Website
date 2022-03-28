@@ -44,6 +44,11 @@ const routes = [
     component: () => import('../views/Login')
   },
   {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/adminSystem/test.vue')
+  },
+  {
     path: '/adminMain',
     name: 'AdminMain',
     component: () => import('../views/adminSystem/adminMain.vue'),
@@ -59,9 +64,39 @@ const routes = [
         component: () => import('../views/adminSystem/Data.vue')
       },
       {
+        path: '/sortData',
+        name: 'SortData',
+        component: () => import('../views/adminSystem/SortData.vue')
+      },
+      {
+        path: '/sortData/:sortId/SecondLevel',
+        name: 'SecondSortItem',
+        component: () => import('../views/adminSystem/SecondSortItem.vue')
+      },
+      {
         path: '/science',
         name: 'Science',
         component: () => import('../views/adminSystem/Science.vue')
+      },
+      {
+        path: '/videoData',
+        name: 'VideoData',
+        component: () => import('../views/adminSystem/VideoData.vue')
+      },
+      {
+        path: '/videoData/Publish',
+        name: 'VideoPublish',
+        component: () => import('../views/adminSystem/VideoPublish.vue')
+      },
+      {
+        path: '/videoData/video',
+        name: 'videoPlayer',
+        component: () => import('../views/adminSystem/VideoPlayer.vue')
+      },
+      {
+        path: '/userData',
+        name: 'UserData',
+        component: () => import('../views/adminSystem/UserData.vue')
       },
       {
         path: '/invitationCode',

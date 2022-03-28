@@ -20,10 +20,10 @@
                     <el-input type="password" v-model="registerForm.repwd" placeholder="请输入重新输入密码" prefix-icon="el-icon-lock"></el-input>
                   </el-form-item>
                   <el-form-item prop="phone">
-                    <el-input type="password" v-model="registerForm.phone" placeholder="请输入电话号码" prefix-icon="el-icon-mobile-phone"></el-input>
+                    <el-input v-model="registerForm.phone" placeholder="请输入电话号码" prefix-icon="el-icon-mobile-phone"></el-input>
                   </el-form-item>
                   <el-form-item prop="email">
-                    <el-input type="password" v-model="registerForm.email" placeholder="请输入电子邮箱" prefix-icon="el-icon-folder"></el-input>
+                    <el-input v-model="registerForm.email" placeholder="请输入电子邮箱" prefix-icon="el-icon-folder"></el-input>
                   </el-form-item>
                   <el-form-item>
                     <div class="remember-wrap" style="margin-top: 9%;">
@@ -73,11 +73,11 @@ export default {
           { min: 6, max: 16, message: '长度在 6 到 16 个字符', trigger: 'blur' }
         ],
         phone: [
-          { required: true, message: '电话号码', trigger: 'blur' },
+          { required: true, message: '电话号码不能为空', trigger: 'blur' },
           { min: 11, max: 11, message: '电话号码格式不规范', trigger: 'blur' }
         ],
         email: [
-          { required: true, message: '邮箱', trigger: 'blur' },
+          { required: true, message: '邮箱不能为空', trigger: 'blur' },
           { min: 1, message: '邮箱格式不能为空', trigger: 'blur' }
         ]
       }
@@ -110,25 +110,18 @@ export default {
       this.systemRegister1()
     },
     async systemRegister1 () {
-      const { data } = await systemRegister(this.registerForm.name, this.registerForm.password, this.registerForm.repwd, this.registerForm.phone)
-      if (data.code === 2004) {
+      const { data } = await systemRegister(this.registerForm.name, this.registerForm.password, this.registerForm.repwd, this.registerForm.phone, this.registerForm.email)
+      if (data.code === 3005) {
         this.$notify({
           title: '警告',
-          message: '密码不一致',
+          message: '用户注册输入两次密码不相同',
           type: 'warning',
           duration: 2000
         })
-      } else if (data.code === 2005) {
+      } else if (data.code === 3006) {
         this.$notify({
           title: '警告',
           message: '用户名已存在',
-          type: 'warning',
-          duration: 2000
-        })
-      } else if (data.code === 3004) {
-        this.$notify({
-          title: '警告',
-          message: '邀请码无效',
           type: 'warning',
           duration: 2000
         })

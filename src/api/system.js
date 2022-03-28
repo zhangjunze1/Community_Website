@@ -2,22 +2,239 @@
 import request from '../utils/request'
 
 /**
- * 系统展示注册
+ * 用户注册
  * @param name
  * @param password
  * @param password1
- * @param inviteCode
+ * @param phone
+ * @param email
  * @returns {AxiosPromise}
  */
-export const systemRegister = (name, password, password1, inviteCode) => {
+export const systemRegister = (name, password, password1, phone, email) => {
   return request({
-    url: '/sysUser/register',
+    url: '/user/register',
     method: 'POST',
     params: {
       name,
       password,
       password1,
-      inviteCode
+      phone,
+      email
+    }
+  })
+}
+
+/**
+ * 后台系统 获取用户列表
+ * @param current
+ * @param size
+ * @param userName
+ * @returns {AxiosPromise}
+ */
+export const findqueryUserList = (current, size, userName) => {
+  return request({
+    url: '/user/queryUserList',
+    method: 'POST',
+    params: {
+      current,
+      size,
+      userName
+    }
+  })
+}
+
+/**
+ * 查找分类Level 1列表
+ * @param current
+ * @param size
+ * @returns {AxiosPromise}
+ */
+export const findSortList = (current, size) => {
+  return request({
+    url: '/sort/findSortList',
+    method: 'POST',
+    params: {
+      current,
+      size
+    }
+  })
+}
+
+/**
+ * 查找分类Level 1列表 全部无分页
+ * @returns {AxiosPromise}
+ */
+export const findSortList1 = () => {
+  return request({
+    url: '/sort/findSortListNoPage',
+    method: 'POST',
+    params: {}
+  })
+}
+
+/**
+ * 增加Level 1 的分类
+ * @param sortname
+ * @returns {AxiosPromise}
+ */
+export const addNewSort = (sortname) => {
+  return request({
+    url: '/sort/addSortOne',
+    method: 'POST',
+    params: {
+      sortname
+    }
+  })
+}
+
+/**
+ * 删除第一分类
+ * @param sortName
+ * @returns {AxiosPromise}
+ */
+export const deleteSort = (sortName) => {
+  return request({
+    url: '/sort/deleteSort',
+    method: 'POST',
+    params: {
+      sortName
+    }
+  })
+}
+
+/**
+ * 获取某一第一分类的视频分类的 第二分类所有视频分类标签
+ * @param current
+ * @param size
+ * @param sortName
+ * @returns {AxiosPromise}
+ */
+export const findSecondSortList = (current, size, sortName) => {
+  return request({
+    url: '/sort/findSecondSortList',
+    method: 'POST',
+    params: {
+      current,
+      size,
+      sortName
+    }
+  })
+}
+
+/**
+ * 获取某一第一分类的视频分类的 第二分类所有视频分类标签
+ * @param sortName
+ * @returns {AxiosPromise}
+ */
+export const findSecondSortList1 = (sortName) => {
+  return request({
+    url: '/sort/findSecondSortListNoPage',
+    method: 'POST',
+    params: {
+      sortName
+    }
+  })
+}
+
+/**
+ * 添加新的第二分类到对应的第一分类中
+ * @param sortName
+ * @param preSortName
+ * @returns {AxiosPromise}
+ */
+export const addNewSecondSort = (sortName, preSortName) => {
+  return request({
+    url: '/sort/addNewSecondSort',
+    method: 'POST',
+    params: {
+      sortName,
+      preSortName
+    }
+  })
+}
+
+/**
+ * 删除第二分类
+ * @param sortName
+ * @param preSortName
+ * @returns {AxiosPromise}
+ */
+export const deleteSecondSort = (sortName, preSortName) => {
+  return request({
+    url: '/sort/deleteSecondSort',
+    method: 'POST',
+    params: {
+      sortName,
+      preSortName
+    }
+  })
+}
+
+/**
+ * 查找对应视频列表
+ * @param current
+ * @param size
+ * @param sort
+ * @param research
+ * @returns {AxiosPromise}
+ */
+export const findVideoList = (current, size, sort, research) => {
+  return request({
+    url: '/video/queryVideoList',
+    method: 'GET',
+    params: {
+      current,
+      size,
+      sort,
+      research
+    }
+  })
+}
+
+/**
+ * 获取视频url
+ * @param data
+ * @returns {AxiosPromise}
+ */
+export const addVideo = (data) => {
+  return request({
+    url: '/oss/uploadVideoFile',
+    method: 'POST',
+    data: data
+  })
+}
+
+/**
+ * 查找所有second 分类
+ * @returns {AxiosPromise}
+ */
+export const findSecondSortListAll = () => {
+  return request({
+    url: '/sort/findSecondSortListAll',
+    method: 'POST',
+    params: {}
+  })
+}
+
+/**
+ * 发布视频
+ * @param videoSub
+ * @param videoDescribe
+ * @param mainSort
+ * @param videoUrl
+ * @param userName
+ * @returns {AxiosPromise}
+ */
+export const addNewVideo = (videoSub, videoDescribe, mainSort, videoUrl, userName) => {
+  return request({
+    url: '/video/addNewVideo',
+    method: 'POST',
+    params: {
+      videoSub,
+      videoDescribe,
+      mainSort,
+      videoUrl,
+      userName
     }
   })
 }
